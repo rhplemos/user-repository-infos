@@ -1,22 +1,16 @@
 package com.example.user_repository_infos.scenes.findRespository
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.user_repository_infos.R
 import com.example.user_repository_infos.databinding.ActivityUserBinding
-import com.example.user_repository_infos.scenes.gitHubService.ApiClient
-import com.example.user_repository_infos.scenes.gitHubService.GitHubService
-import com.example.user_repository_infos.scenes.gitHubService.Repository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import org.koin.android.ext.android.inject
 
 class FindRepositoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserBinding
+    private val viewModel: FindRepositoryViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,39 +19,26 @@ class FindRepositoryActivity : AppCompatActivity() {
         setContentView(view)
 
         setupClickListeners()
+        observeRepositories()
     }
 
     private fun setupClickListeners() = binding.run {
         searchBTN.setOnClickListener {
-            getRepositories()
+            searchAction()
         }
     }
 
     private fun searchAction() = binding.run {
-
+        if (binding.editTextSearch.text.isEmpty()) {
+            viewModel.loadRepositories(this@FindRepositoryActivity)
+        }
     }
-
-    private fun getRepositories() {
-        val retrofitClient = ApiClient.getRetrofitInstance("https://api.github.com/")
-        val endpoint = retrofitClient.create(GitHubService::class.java)
-        val callback = endpoint.getRepositories()
-
-        val recyclerViewUsers = findViewById<RecyclerView>(R.id.recyclerViewUsers)
-
-
-        callback.enqueue(object: Callback<List<Repository>> {
-            override fun onFailure(call: Call<List<Repository>>, t: Throwable) {
-                Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(call: Call<List<Repository>>, response: Response<List<Repository>>) {
-                val repositories = response.body()
-                val userAdapter = repositories?.let { UserRepositoryAdapter(it) }
-                recyclerViewUsers.adapter = userAdapter
-                recyclerViewUsers.layoutManager = LinearLayoutManager(this@FindRepositoryActivity)
-            }
-        })
-
-
+    private fun observeRepositories() {
+        viewModel.repositories.observe(this) { repositories ->
+            val userAdapter = repositories?.let { UserRepositoryAdapter(it) }
+            binding.recyclerViewUsers.adapter = userAdapter
+            binding.recyclerViewUsers.layoutManager =
+                LinearLayoutManager(this@FindRepositoryActivity)
+        }
     }
 }
