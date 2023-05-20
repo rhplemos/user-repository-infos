@@ -1,4 +1,4 @@
-package com.example.user_repository_infos.scenes.userInfo
+package com.example.user_repository_infos.scenes.findRespository
 
 import android.view.LayoutInflater
 import android.view.View

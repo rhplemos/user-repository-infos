@@ -1,4 +1,4 @@
-package com.example.user_repository_infos.scenes.userInfo
+package com.example.user_repository_infos.scenes.findRespository
 
 import android.os.Bundle
 import android.widget.Toast
@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserInfoActivity : AppCompatActivity() {
+class FindRepositoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUserBinding
 
@@ -28,9 +28,13 @@ class UserInfoActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() = binding.run {
-        buttonRefresh.setOnClickListener {
+        searchBTN.setOnClickListener {
             getRepositories()
         }
+    }
+
+    private fun searchAction() = binding.run {
+
     }
 
     private fun getRepositories() {
@@ -50,7 +54,7 @@ class UserInfoActivity : AppCompatActivity() {
                 val repositories = response.body()
                 val userAdapter = repositories?.let { UserRepositoryAdapter(it) }
                 recyclerViewUsers.adapter = userAdapter
-                recyclerViewUsers.layoutManager = LinearLayoutManager(this@UserInfoActivity)
+                recyclerViewUsers.layoutManager = LinearLayoutManager(this@FindRepositoryActivity)
             }
         })
 
