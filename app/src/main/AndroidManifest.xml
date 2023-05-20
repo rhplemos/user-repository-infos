@@ -21,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".scenes.userInfo.UserInfoActivity"
+            android:label="UserInfoActivity"
+            android:theme="@style/Theme.Userrepositoryinfos">
+        </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
