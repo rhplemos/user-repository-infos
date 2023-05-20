@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">user-repository-infos</string>
+    <string name="upgrade">Atualizar</string>
+    <string name="repository_list">Lista de Repositórios</string>
+    <string name="list_all_repositories">Todos repositórios</string>
+    <string name="find_user_repositories">Buscar por usuário</string>
+    <string name="find_user_infos">Buscar informações de usuário</string>
+    <string name="search">Buscar</string>
 </resources>
