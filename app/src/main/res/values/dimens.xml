@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_zero">0dp</dimen>
+    <dimen name="spacing_quark">4dp</dimen>
+    <dimen name="spacing_pico">8dp</dimen>
+    <dimen name="spacing_mili">12dp</dimen>
+    <dimen name="spacing_m">16dp</dimen>
+    <dimen name="spacing_xm">24dp</dimen>
+    <dimen name="spacing_xxm">48dp</dimen>
+</resources>
