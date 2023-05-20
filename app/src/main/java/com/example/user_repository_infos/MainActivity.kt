@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.user_repository_infos.databinding.ActivityMainBinding
-import com.example.user_repository_infos.scenes.userInfo.UserInfoActivity
+import com.example.user_repository_infos.scenes.findRespository.FindRepositoryActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,13 +19,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() = binding.run {
-        seeUserInfoBTN.setOnClickListener {
+        seeAllRepositoriesBTN.setOnClickListener {
             openUserInfoActivity()
         }
     }
 
     private fun openUserInfoActivity() {
-        val intent = Intent(this, UserInfoActivity::class.java)
+        val intent = Intent(this, FindRepositoryActivity::class.java)
         startActivity(intent)
     }
 }
