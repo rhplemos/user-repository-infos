@@ -17,10 +17,10 @@ class FindRepositoryViewModel : ViewModel(), KoinComponent {
     private val _repositories = MutableLiveData<List<Repository>>()
     val repositories: LiveData<List<Repository>> get() = _repositories
 
-    fun loadRepositories(context: Context) {
+    fun loadAllRepositories(context: Context, userName: String) {
         val retrofitClient = ApiClient.getRetrofitInstance()
         val endpoint = retrofitClient.create(GitHubService::class.java)
-        val callback = endpoint.getRepositories()
+        val callback = if(userName.isEmpty()) endpoint.getRepositories() else endpoint.getRepository(userName)
 
         callback.enqueue(object : Callback<List<Repository>> {
             override fun onFailure(call: Call<List<Repository>>, t: Throwable) {

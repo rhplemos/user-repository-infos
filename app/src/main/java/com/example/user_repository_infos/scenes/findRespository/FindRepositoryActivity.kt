@@ -28,10 +28,9 @@ class FindRepositoryActivity : AppCompatActivity() {
     }
 
     private fun searchAction() = binding.run {
-        if (binding.editTextSearch.text.isEmpty()) {
-            viewModel.loadRepositories(this@FindRepositoryActivity)
-        }
+        viewModel.loadAllRepositories(this@FindRepositoryActivity, editTextSearch.text.toString())
     }
+
     private fun observeRepositories() {
         viewModel.repositories.observe(this) { repositories ->
             val userAdapter = repositories?.let { UserRepositoryAdapter(it) }
