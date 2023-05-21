@@ -5,9 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
     companion object {
-        fun getRetrofitInstance(path: String): Retrofit {
+        fun getRetrofitInstance(): Retrofit {
             return Retrofit.Builder()
-                .baseUrl(path)
+                .baseUrl("https://api.github.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }

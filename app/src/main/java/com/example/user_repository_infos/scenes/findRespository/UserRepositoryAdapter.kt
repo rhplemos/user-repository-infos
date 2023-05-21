@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.user_repository_infos.R
-import com.example.user_repository_infos.scenes.gitHubService.Repository
+import com.example.user_repository_infos.scenes.gitHubService.models.Repository
 
 class UserRepositoryAdapter(private val userList: List<Repository>) : RecyclerView.Adapter<UserRepositoryAdapter.UserViewHolder>() {
 

@@ -5,5 +5,6 @@
     <string name="list_all_repositories">Todos repositórios</string>
     <string name="find_user_repositories">Buscar por usuário</string>
     <string name="find_user_infos">Buscar informações de usuário</string>
+    <string name="find_repositories">Buscar repositório</string>
     <string name="search">Buscar</string>
 </resources>
