@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.user_repository_infos.scenes.gitHubService.ApiClient
 import com.example.user_repository_infos.scenes.gitHubService.GitHubService
-import com.example.user_repository_infos.scenes.gitHubService.Repository
+import com.example.user_repository_infos.scenes.gitHubService.models.Repository
 import org.koin.core.component.KoinComponent
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,7 +18,7 @@ class FindRepositoryViewModel : ViewModel(), KoinComponent {
     val repositories: LiveData<List<Repository>> get() = _repositories
 
     fun loadRepositories(context: Context) {
-        val retrofitClient = ApiClient.getRetrofitInstance("https://api.github.com/")
+        val retrofitClient = ApiClient.getRetrofitInstance()
         val endpoint = retrofitClient.create(GitHubService::class.java)
         val callback = endpoint.getRepositories()
 

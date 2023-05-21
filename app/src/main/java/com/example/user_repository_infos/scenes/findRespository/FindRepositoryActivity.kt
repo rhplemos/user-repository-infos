@@ -2,19 +2,18 @@ package com.example.user_repository_infos.scenes.findRespository
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.user_repository_infos.databinding.ActivityUserBinding
+import com.example.user_repository_infos.databinding.ActivityRepositoryBinding
 import org.koin.android.ext.android.inject
 
 class FindRepositoryActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUserBinding
+    private lateinit var binding: ActivityRepositoryBinding
     private val viewModel: FindRepositoryViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityUserBinding.inflate(layoutInflater)
+        binding = ActivityRepositoryBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
