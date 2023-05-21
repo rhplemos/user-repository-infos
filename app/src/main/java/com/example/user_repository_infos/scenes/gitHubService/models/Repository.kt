@@ -1,4 +1,4 @@
-package com.example.user_repository_infos.scenes.gitHubService
+package com.example.user_repository_infos.scenes.gitHubService.models
 
 import com.google.gson.annotations.SerializedName
 

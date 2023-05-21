@@ -28,19 +28,14 @@ class FindUserInfoActivity : AppCompatActivity() {
     }
 
     private fun searchAction() = binding.run {
-        if (binding.editTextSearch.text.isEmpty()) {
-            viewModel.loadUser(this@FindUserInfoActivity)
-        }
+        viewModel.loadUser(this@FindUserInfoActivity, editTextSearch.text.toString())
     }
     private fun observeRepositories() = binding.run  {
         viewModel.user.observe(this@FindUserInfoActivity) { user ->
             userNameTV.text = user.name
             userBioTV.text = user.bio
-            userLocationTV.text = user.location
-//            val userAdapter = user?.let { UserInfoAdapter(it) }
-//            binding.recyclerViewUsers.adapter = userAdapter
-//            binding.recyclerViewUsers.layoutManager =
-//                LinearLayoutManager(this@FindUserInfoActivity)
+            userLocationTV.text = user.company
+            repositoryQuantityTV.text = user.publicRepos
         }
     }
 }

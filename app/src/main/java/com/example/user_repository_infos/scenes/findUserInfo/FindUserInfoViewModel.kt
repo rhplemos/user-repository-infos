@@ -15,11 +15,10 @@ class FindUserInfoViewModel : ViewModel(), KoinComponent {
     private val _user = MutableLiveData<UserModel>()
     val user: LiveData<UserModel> get() = _user
 
-    fun loadUser(context: Context) {
-        val username = "rhplemos"
+    fun loadUser(context: Context, userName: String) {
         val retrofitClient = ApiClient.getRetrofitInstance()
         val endpoint = retrofitClient.create(GitHubService::class.java)
-        val callback = endpoint.getUser(username)
+        val callback = endpoint.getUser(userName)
 
         callback.enqueue(object : Callback<UserModel> {
             override fun onFailure(call: Call<UserModel>, t: Throwable) {

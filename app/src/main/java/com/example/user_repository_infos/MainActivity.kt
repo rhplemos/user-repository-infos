@@ -6,6 +6,7 @@ import android.os.Bundle
 import appModule
 import com.example.user_repository_infos.databinding.ActivityMainBinding
 import com.example.user_repository_infos.scenes.findRespository.FindRepositoryActivity
+import com.example.user_repository_infos.scenes.findUserInfo.FindUserInfoActivity
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -26,13 +27,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners() = binding.run {
-        seeAllRepositoriesBTN.setOnClickListener {
+        searchRepositoriesBTN.setOnClickListener {
+            openFindRepositoryActivity()
+        }
+        searchUserBTN.setOnClickListener {
             openUserInfoActivity()
         }
     }
 
-    private fun openUserInfoActivity() {
+    private fun openFindRepositoryActivity() {
         val intent = Intent(this, FindRepositoryActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openUserInfoActivity() {
+        val intent = Intent(this, FindUserInfoActivity::class.java)
         startActivity(intent)
     }
 }
