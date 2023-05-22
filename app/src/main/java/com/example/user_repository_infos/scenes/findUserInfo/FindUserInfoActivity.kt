@@ -42,7 +42,7 @@ class FindUserInfoActivity : AppCompatActivity() {
     private fun setupUserInfosVisibility() = binding.run {
         userInfosLL.visibility = View.GONE
         viewModel.shouldShowUserInfos.observe(this@FindUserInfoActivity) { shouldShow ->
-            if(shouldShow) {
+            if (shouldShow) {
                 userInfosLL.visibility = View.VISIBLE
             }
         }
@@ -98,9 +98,10 @@ class FindUserInfoActivity : AppCompatActivity() {
     }
 
     private fun setupObserversEvent() = viewModel.event.observe(this) {
-        when(it) {
+        when (it) {
             is FindUserInfoViewModel.FindUserEvent.HandleError -> {
-                Toast.makeText(this@FindUserInfoActivity, it.errorMessage, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@FindUserInfoActivity, it.errorMessage, Toast.LENGTH_SHORT)
+                    .show()
             }
 
             else -> {}

@@ -31,9 +31,9 @@ class FindUserInfoViewModel : ViewModel(), KoinComponent {
             override fun onFailure(call: Call<UserModel>, t: Throwable) {
                 uiState.closeLoadDialog(true)
                 _event.postValue(
-                FindUserEvent.HandleError(
-                    errorMessage = t.message.toString()
-                )
+                    FindUserEvent.HandleError(
+                        errorMessage = t.message.toString()
+                    )
                 )
             }
 
