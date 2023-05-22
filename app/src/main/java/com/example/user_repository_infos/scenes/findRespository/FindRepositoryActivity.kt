@@ -1,6 +1,8 @@
 package com.example.user_repository_infos.scenes.findRespository
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.user_repository_infos.databinding.ActivityRepositoryBinding
@@ -19,12 +21,19 @@ class FindRepositoryActivity : AppCompatActivity() {
 
         setupClickListeners()
         observeRepositories()
+        setupObserversUiState()
+        setupObserversEvent()
+        setRepositoryVisible()
     }
 
     private fun setupClickListeners() = binding.run {
         searchBTN.setOnClickListener {
             searchAction()
         }
+    }
+
+    private fun setRepositoryVisible() = binding.run {
+        recyclerViewUsers.visibility = View.GONE
     }
 
     private fun searchAction() = binding.run {
@@ -37,6 +46,45 @@ class FindRepositoryActivity : AppCompatActivity() {
             binding.recyclerViewUsers.adapter = userAdapter
             binding.recyclerViewUsers.layoutManager =
                 LinearLayoutManager(this@FindRepositoryActivity)
+        }
+    }
+
+    private fun showLoadingIndicator() = binding.run {
+        recyclerViewUsers.visibility = View.GONE
+        loadingImageView.visibility = View.VISIBLE
+    }
+
+    private fun closeLoadingDialog() = binding.run {
+        recyclerViewUsers.visibility = View.VISIBLE
+        loadingImageView.visibility = View.GONE
+    }
+
+    private fun setupObserversUiState() = viewModel.uiState.run {
+        enableLoadIndicator.observe(this@FindRepositoryActivity) { shouldEnable ->
+            if (shouldEnable) {
+                showLoadingIndicator()
+            }
+        }
+
+        closeLoadDialog.observe(this@FindRepositoryActivity) { shouldClose ->
+            if (shouldClose) {
+                closeLoadingDialog()
+            }
+        }
+    }
+
+    private fun errorAction(errorMessage: String) {
+        Toast.makeText(this@FindRepositoryActivity, errorMessage, Toast.LENGTH_SHORT).show()
+        binding.recyclerViewUsers.visibility = View.GONE
+    }
+
+    private fun setupObserversEvent() = viewModel.event.observe(this) {
+        when(it) {
+            is FindRepositoryViewModel.FindRepositoryEvent.HandleError -> {
+                errorAction(it.errorMessage)
+            }
+
+            else -> {}
         }
     }
 }

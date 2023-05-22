@@ -3,8 +3,17 @@
     <string name="upgrade">Atualizar</string>
     <string name="repository_list">Lista de Repositórios</string>
     <string name="list_all_repositories">Todos repositórios</string>
-    <string name="find_user_repositories">Buscar por usuário</string>
+    <string name="find_user_repositories">Buscar usuário</string>
     <string name="find_user_infos">Buscar informações de usuário</string>
     <string name="find_repositories">Buscar repositório</string>
     <string name="search">Buscar</string>
+    <string name="user_name">Nome do usuário: </string>
+    <string name="location">Localização: </string>
+    <string name="company">Empresa: </string>
+    <string name="bio">Bio: </string>
+    <string name="repo_quantity">Quantidade de repositórios: </string>
+    <string name="user_details">Detalhes de usuário: </string>
+    <string name="enter_user_name">Digite o nome do usuário</string>
+    <string name="app_title">GitHub Finder</string>
+    <string name="user_not_found">Usuário não encontrado</string>
 </resources>

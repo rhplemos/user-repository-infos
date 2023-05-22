@@ -11,7 +11,7 @@
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lista de Repositórios"
+        android:text="@string/repository_list"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Digite o termo de busca"
+            android:hint="@string/enter_user_name"
             android:inputType="text"
             android:maxLines="1" />
 
@@ -35,18 +35,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/main"
-            android:text="Buscar" />
+            android:text="@string/search" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/repositoryNameTV"
-        android:layout_width="wrap_content"
+
+    <FrameLayout
+        android:id="@+id/loadingImageView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_mili"
-        android:text="Nome do repositório"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="@dimen/spacing_xxl"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewUsers"
