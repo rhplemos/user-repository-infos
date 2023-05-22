@@ -17,4 +17,7 @@ interface GitHubService {
 
     @GET("users/{username}")
     fun getUser(@Path("username") username: String): Call<UserModel>
+
+    @GET("users")
+    fun getUsers(): Call<UserModel>
 }

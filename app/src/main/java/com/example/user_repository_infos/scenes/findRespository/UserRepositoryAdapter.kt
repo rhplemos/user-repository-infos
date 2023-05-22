@@ -11,7 +11,7 @@ import com.example.user_repository_infos.scenes.gitHubService.models.Repository
 class UserRepositoryAdapter(private val userList: List<Repository>) : RecyclerView.Adapter<UserRepositoryAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_repository, parent, false)
         return UserViewHolder(itemView)
     }
 
