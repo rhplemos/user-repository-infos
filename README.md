@@ -31,7 +31,8 @@ To get started with the app, follow these steps:
 ## How to Use the App
 
 1. Launch the app on your Android device or emulator.
-2. Enter the username of a GitHub user in the search bar.
-3. Tap the search button to initiate the search.
-4. The app will display the user's information, including their name, bio, location, number of public repositories, and company.
-5. Scroll down to view the user's repositories. Each repository will show its name, description, and number of stars.
+2. Choose whether you want to fetch a repository or a user
+3. Enter the username of a GitHub user or a repository name in the search bar.
+4. Tap the search button to initiate the search.
+5. The app will display the user's information, including their name, bio, location, number of public repositories, and company.
+6. Scroll down to view the user's repositories. Each repository will show its name, description, and number of stars.
