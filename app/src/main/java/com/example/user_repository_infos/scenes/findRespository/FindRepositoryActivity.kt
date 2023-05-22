@@ -75,6 +75,7 @@ class FindRepositoryActivity : AppCompatActivity() {
 
     private fun errorAction(errorMessage: String) {
         Toast.makeText(this@FindRepositoryActivity, errorMessage, Toast.LENGTH_SHORT).show()
+        binding.recyclerViewUsers.visibility = View.GONE
     }
 
     private fun setupObserversEvent() = viewModel.event.observe(this) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- item_user.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <LinearLayout
@@ -32,6 +32,8 @@
                 android:id="@+id/userNameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tool:text="Teste"
                 android:textSize="16sp"
                 android:textColor="@color/dark_gray" />
 
@@ -53,6 +55,8 @@
                 android:id="@+id/userLocationTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tool:text="Teste"
                 android:textSize="16sp"
                 android:textColor="@color/dark_gray" />
 
@@ -75,6 +79,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                tool:text="Teste"
+                android:textAlignment="textEnd"
                 android:textColor="@color/dark_gray" />
 
         </LinearLayout>
@@ -95,6 +101,8 @@
                 android:id="@+id/repositoryQuantityTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                tool:text="Teste"
                 android:textSize="16sp"
                 android:textColor="@color/dark_gray" />
         </LinearLayout>
@@ -116,6 +124,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textAlignment="textEnd"
+                tool:text="Teste"
                 android:textColor="@color/dark_gray" />
 
         </LinearLayout>

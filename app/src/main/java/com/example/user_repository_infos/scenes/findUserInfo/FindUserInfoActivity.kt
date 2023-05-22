@@ -66,7 +66,7 @@ class FindUserInfoActivity : AppCompatActivity() {
         val bio = user.bio.orUnknown()
         val location = user.location.orUnknown()
         val repositoriesQt = user.publicRepos.orUnknown()
-        val company = user.company
+        val company = user.company.orUnknown()
 
         userNameTV.text = name
         userBioTV.text = bio
@@ -77,10 +77,12 @@ class FindUserInfoActivity : AppCompatActivity() {
 
     private fun showLoadingIndicator() = binding.run {
         loadingImageView.visibility = View.VISIBLE
+        binding.userInfosLL.visibility = View.GONE
     }
 
     private fun closeLoadingDialog() = binding.run {
         loadingImageView.visibility = View.GONE
+        binding.userInfosLL.visibility = View.VISIBLE
     }
 
     private fun setupObserversUiState() = viewModel.uiState.run {

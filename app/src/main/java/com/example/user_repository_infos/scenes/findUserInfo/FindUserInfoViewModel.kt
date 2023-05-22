@@ -42,7 +42,7 @@ class FindUserInfoViewModel : ViewModel(), KoinComponent {
                 _shouldShowUserInfos.postValue(false)
                 if (response.isSuccessful) {
                     val user = response.body()
-                    if (user != null && user.name.isNotBlank()) {
+                    if (user != null) {
                         _shouldShowUserInfos.postValue(true)
                         _user.value = user!!
                     } else {

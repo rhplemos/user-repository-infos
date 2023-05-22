@@ -62,7 +62,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/border"
         android:orientation="vertical"
-        android:padding="@dimen/spacing_pico"
+        android:padding="@dimen/spacing_quark"
+        android:layout_marginBottom="@dimen/spacing_xm"
         android:layout_marginTop="16dp">
 
         <LinearLayout
@@ -81,6 +82,7 @@
                 android:id="@+id/userNameTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:textSize="16sp"
                 android:textColor="@color/dark_gray" />
 
@@ -102,6 +104,7 @@
                 android:id="@+id/userLocationTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:textSize="16sp"
                 android:textColor="@color/dark_gray" />
 
@@ -124,6 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textAlignment="textEnd"
                 android:textColor="@color/dark_gray" />
 
         </LinearLayout>
@@ -144,6 +148,7 @@
                 android:id="@+id/repositoryQuantityTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:textSize="16sp"
                 android:textColor="@color/dark_gray" />
         </LinearLayout>
@@ -165,6 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textAlignment="textEnd"
                 android:textColor="@color/dark_gray" />
 
         </LinearLayout>
